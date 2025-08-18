@@ -17,14 +17,14 @@ if not OPENROUTER_API_KEY:
     raise ValueError("Please set the OPENROUTER_API_KEY environment variable.")
 
 vlm_models = [
-    "z-ai/glm-4.5v",
+    "google/gemini-2.5-pro",
+    "qwen/qwen3-235b-a22b-2507",
     "openai/gpt-5-mini",
     "openai/gpt-4o",
-    "google/gemini-2.5-pro",
     "anthropic/claude-sonnet-4",
-    "meta-llama/llama-4-maverick",
     "x-ai/grok-4",
-    "qwen/qwen3-235b-a22b-2507"
+    "meta-llama/llama-4-maverick",
+    "z-ai/glm-4.5v"
 ]
 
 dataset_dir = Path("aug_dataset")
@@ -71,7 +71,9 @@ def ask_model(client, model_name, image_path, task="brand"):
 
     try:
         completion = client.chat.completions.create(
-            extra_headers={"HTTP-Referer": site_url, "X-Title": site_name},
+            extra_headers={
+                # "HTTP-Referer": site_url, "X-Title": site_name
+            },
             model=model_name,
             messages=[{"role": "user", "content":[
                 {"type":"text","text":question},
