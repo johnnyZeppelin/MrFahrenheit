@@ -3,7 +3,7 @@ import re
 import csv
 from pathlib import Path
 from openai import OpenAI
-from tqdm import tqdm
+# from tqdm import tqdm
 
 # -------------------
 # CONFIG
@@ -15,16 +15,22 @@ if not OPENROUTER_API_KEY:
 # Models to benchmark
 vlm_models = [
     "z-ai/glm-4.5v",
-    "openai/gpt-4o-mini",
+    "openai/gpt-5-mini",
+    # "openai/gpt-4o-mini",
     "openai/gpt-4o",
-    "anthropic/claude-3.5-sonnet",
-    "meta-llama/llama-3.2-vision",
-    "google/gemini-1.5-flash"
+    "google/gemini-2.5-pro",
+    "anthropic/claude-sonnet-4",
+    # "anthropic/claude-3.5-sonnet",
+    "meta-llama/llama-4-maverick",
+    # "meta-llama/llama-3.2-vision",
+    "x-ai/grok-4",
+    # "google/gemini-1.5-flash"
+    "qwen/qwen3-235b-a22b-2507"
 ]
 
 # Dataset path
 dataset_dir = Path("aug_dataset")
-site_url = "https://example.com"
+site_url = "https://lsfjohn.asia"  # "https://example.com"
 site_name = "VLM Benchmark"
 
 # -------------------

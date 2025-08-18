@@ -1,4 +1,6 @@
+openai
 kagglehub
 tqdm
 albumentations
 opencv-python
+matplotlib
