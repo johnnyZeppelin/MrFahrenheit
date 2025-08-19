@@ -133,12 +133,12 @@ dataset = datasets.ImageFolder("./data", transform=transform)
 
 ---
 
-<!-- ## 📌 Notes
+## 📌 Notes
 
 * Supported input: **local images**
-* Image types: `.jpg`, `.png`, `.jpeg` -->
+* Image types: `.jpg`, `.png`, `.jpeg`
 
----
+<!-- --- -->
 <!-- 
 ## 🛠️ Next Steps
 
