@@ -5,34 +5,56 @@ This repository provides tools for **evaluating model robustness** under differe
 ---
 
 ## 📂 Project Structure
+This is the aug_dataset generated after running augment.py.
 
 ```
 .
-├── data/                     # Local dataset images
-│   ├── class1/               # Example category
-│   │   ├── img1.jpg
-│   │   ├── img2.jpg
-│   └── class2/
-│       ├── img3.jpg
-│       ├── img4.jpg
+aug_dataset/
 │
-├── results/                  # Plots and saved evaluation results
-│   ├── fig.png
-│   ├── accuracy_table.csv
+├── rotation/
+│   └── LogoDet-3K/
+│       ├── clothes/
+│       │   ├── nike/
+│       │   │   ├── img001.jpg
+│       │   │   ├── img002.jpg
+│       │   │   └── ...
+│       │   ├── adidas/
+│       │   │   ├── img101.jpg
+│       │   │   └── ...
+│       │   └── ...
+│       └── food/
+│           ├── starbucks/
+│           │   ├── img201.jpg
+│           │   └── ...
+│           └── ...
 │
-├── scripts/
-│   ├── augment.py            # Data augmentation & perturbation functions
-│   ├── evaluate.py           # Model evaluation pipeline
-│   ├── plot_results.py       # Visualization (bar charts, grouped plots)
+├── blur/
+│   └── LogoDet-3K/
+│       ├── clothes/
+│       │   ├── nike/
+│       │   │   ├── img001.jpg
+│       │   │   └── ...
+│       │   └── adidas/
+│       │       ├── img101.jpg
+│       │       └── ...
+│       └── ...
 │
-├── README.md                 # Project documentation
+├── noise/
+│   └── LogoDet-3K/
+│       ├── clothes/
+│       │   ├── nike/
+│       │   │   ├── img001.jpg
+│       │   │   └── ...
+│       └── ...
+│
+└── ...
 ```
 
 ---
 
 ## 🚀 Features
 
-* Load **local datasets** using PyTorch `ImageFolder`.
+* Load **local datasets** of any similar logo datasets.
 * Apply **augmentation and perturbations** (blur, noise, brightness, etc.).
 * Evaluate **different models** on clean vs perturbed data.
 * Generate **comparison plots**:
@@ -48,7 +70,7 @@ This repository provides tools for **evaluating model robustness** under differe
 Install dependencies:
 
 ```bash
-pip install torch torchvision matplotlib pandas
+bash env.sh
 ```
 
 ---
@@ -61,34 +83,36 @@ Place your images under `./data/` following a class-folder structure:
 
 ```
 data/
-├── cats/
-│   ├── cat1.jpg
-│   ├── cat2.jpg
-├── dogs/
-│   ├── dog1.jpg
-│   ├── dog2.jpg
+├── <dataset name>/
 ```
 
-### 2. Run Evaluation
-
 ```bash
-python scripts/evaluate.py
+python augment.py
 ```
 
 This will:
 
 * Load dataset
 * Apply augmentations
+
+### 2. Run Evaluation
+
+```bash
+python evaluate.py
+```
+
+This will:
+
 * Evaluate models
-* Save results in `./results/`
+* Save results in `./figures/`
 
 ### 3. Plot Results
 
 ```bash
-python scripts/plot_results.py
+python evaluate.py
 ```
 
-This will generate grouped bar charts and save as `results/fig.png`.
+This will also generate grouped bar charts and save as `./figures/<model name>.pdf`.
 
 ---
 
@@ -109,11 +133,10 @@ dataset = datasets.ImageFolder("./data", transform=transform)
 
 ---
 
-## 📌 Notes
+<!-- ## 📌 Notes
 
 * Supported input: **local images**
-* Image types: `.jpg`, `.png`, `.jpeg`
-* Output: Accuracy table (`.csv`) and plots (`.png`)
+* Image types: `.jpg`, `.png`, `.jpeg` -->
 
 ---
 <!-- 
