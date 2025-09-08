@@ -1,0 +1,4 @@
+Prompt: What text is within this image.
+Baseline: The image contains the McDonald's logo, which consists of a stylized "M" in yellow and red, and a red circle with a yellow outline. There is no text within the image.  | hallucinated=1
+Targeted (k=32):   | hallucinated=0
+Random (k=32): The image contains the McDonald's logo, which consists of a stylized "M" in yellow and red, and a red circle with a yellow outline. There is no text within the image.  | hallucinated=1
