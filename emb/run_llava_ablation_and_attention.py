@@ -35,9 +35,9 @@ from transformers import (
 # Config
 # -----------------------
 MODEL_ID = "llava-hf/llava-v1.6-mistral-7b-hf"
-IMAGE_PATH = "example.png"
+IMAGE_PATH = "ex2.png"
 QUESTION = "What text is within this image."
-FIG_DIR = Path("./fig")
+FIG_DIR = Path("./fig2")
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"

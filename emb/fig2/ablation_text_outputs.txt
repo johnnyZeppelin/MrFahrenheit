@@ -1,0 +1,10 @@
+Prompt: What text is within this image.
+Baseline: The image contains four logos, each representing a different brand. However, there is no text within the image itself. The logos are:
+
+1. The Volkswagen logo, which consists of a stylized "V" and "W" with a horizontal bar across the middle.
+2.  | hallucinated=1
+Targeted (k=32):   | hallucinated=0
+Random (k=32): The image contains four logos, each representing a different brand. However, there is no text within the image itself. The logos are:
+
+1. The Volkswagen logo, which consists of a stylized "V" and "W" with a horizontal bar across the middle.
+2.  | hallucinated=1
